@@ -2,10 +2,9 @@ This project is an adaptation that adds support  for iReader
 
 
 Most manga conversion methods for ereaders add margins. But KCC enables true fullscreen from top to bottom. 
+![thumbnail](images/thumbnail.jpeg)
 
-![header](images/header_marginsXO.jpeg)
-
-(feat. Ya Boy Kongming! and Fire Force from a [Humble Bundle](https://humblebundleinc.sjv.io/xL6Zv1) PDF source.)
+[Title: Ubunchu! | Author: Hiroshi Seo | Publisher: ASCII MEDIA WORKS Inc.]
 
 # KCC
 
@@ -34,18 +33,26 @@ KCC's main goal is maximum image quality at significantly smaller file size. For
    This can also improve battery life, page turn speed, and general performance
    on underpowered ereaders with small memory and storage capacities.
 
-2) fixes black levels to avoid gray/faded blacks found in many Kindle Store manga.
+2) doesn't add extra margins like other software. KCC enables true fullscreen top to bottom.
+
+![header](images/header_marginsXO.jpeg)
+
+[Title: Ya Boy Kongming! | Story: Yuto Yotsuba | Art: Ryo Ogawa | Publisher: Kodansha | Source: Humble Bundle]
+
+3) fixes black levels to avoid gray/faded blacks found in many Kindle Store manga.
 (The original source was gray, KCC processing made it black.)
 
 ![black](images/black_white2.jpeg)
 
-3) fixes [the rainbow effect on Kaleido 3 color eink](https://www.youtube.com/watch?v=Dw2HTJCGMhw) without blur using a 2D Discrete Fourier Transform:
+[Title: Fire Force | Author: Atsushi Ohkubo | Publisher: Kodansha | Source: Humble Bundle]
+
+4) fixes [the rainbow effect on Kaleido 3 color eink](https://www.youtube.com/watch?v=Dw2HTJCGMhw) without blur using a 2D Discrete Fourier Transform:
 
 ![rainbow](images/rainbow720.jpeg)
 
-4) can [semi-automatically detect 2-page spreads](https://www.youtube.com/watch?v=kfIX67f7Aqk) from pre-split single pages:
+5) can [semi-automatically detect 2-page spreads](https://www.youtube.com/watch?v=kfIX67f7Aqk) from pre-split single pages:
 
-![before](images/spreadbefore720.jpeg)
+![before](images/joinorder.jpeg)
 
 You can view combined spreads either rotated or not:
 
@@ -163,10 +170,14 @@ For flatpak, Docker, and AppImage versions, refer to the wiki: https://github.co
   - MOBI for modern Kindles. [CBZ for KF7 Kindles](https://ebooks.stackexchange.com/questions/173/how-to-use-the-e-ink-kindle-readers-to-display-photos) like the Kindle 1/2/3/DX. CBZ for Koreader. KEPUB for Kobo (Kobo profile + EPUB = KEPUB). PDF for ReMarkable or Kindle Scribe 2025.
 - Where is KEPUB option?
   - Choosing a Kobo profile and EPUB output will output KEPUB.
+- KEPUB crashes on Kobo?
+  - Remove any special characters like `!` from the filepath, including any intermediate **folders.** 
 - All options have additional information in tooltips if you hover over the option.
 - To get the converted book onto your Kindle/Kobo, just drag and drop the mobi/kepub into the documents folder on your Kindle/Kobo via USB
 - Kindle panel view not working?
   - Virtual panel view is enabled in Aa menu on your Kindle, not in KCC as of 7.4
+- No page turn animation on Kindle MOBI?
+  - Use legacy panel view option. Or enable page turn animation in a normal book and then come back to the mobi.
 - Right to left mode not working?
   - RTL mode only affects splitting order for CBZ output. Your cbz reader itself sets the page turn direction.
 - Colors inverted?
