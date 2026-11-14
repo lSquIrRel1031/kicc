@@ -27,7 +27,7 @@ jobs:
     env:
       WINDOWS_7: 1
       # If the workflow fails just check the workDir step below
-      PIP_CERT: D:\a\kcc\kcc\packaging\windows7\cacert.pem
+      PIP_CERT: ${{ github.workspace }}\packaging\windows7\cacert.pem
     steps:
       - uses: actions/checkout@v7
       - name: Get Current Working Directory
